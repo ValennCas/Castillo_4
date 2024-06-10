@@ -1,0 +1,161 @@
+
+.Menu{
+    min-width: 100vw;
+    min-height: 47vw;
+    position: absolute;
+    z-index: 2;
+    background-color: rgb(97, 11, 97);
+    opacity: 0.85;
+}
+
+
+.inicio, .instrucciones, .controles, .mostrarPanelPerder, .panelGanar{
+    opacity: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.inicio, .instrucciones, .controles, #panelPerder, .panelGanar{
+    position: absolute;
+    width: 500px;
+    z-index: 3;
+    height: 350px;
+    top: 150px;
+    box-shadow: 0px 0px 6px 2px #727272 inset;
+    background-color: rgb(221, 120, 221);
+    left: 435px;
+    font-size: 20px;
+    border-radius: 7px;
+    border: double 6px #fff700;
+}
+
+.botones{
+    height: 40%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.esconderMenu, .panelGanar, .noMostrar, .mostrarPanelPerder{
+    display: none;
+} 
+
+.inicio p{
+    font-weight: bold;
+    width: 100%;
+    font-size: xx-large;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.botones button, .botonJugar, .botonJugarInstrucciones, .botonReiniciar{
+    background-color: rgb(80, 80, 80);
+    box-shadow: 0px 0px 6px 2px #727272 inset;
+    color: #ffff;
+    margin: 2px;
+    font-size: 18px;
+    font-weight: bold;
+    width: 150px;
+    height: 60px;
+    border-radius: 5px
+}
+
+button:hover{
+    background-color: rgb(37, 37, 37);
+}
+.botonReiniciar{
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 17px;
+    margin-top: 100px;
+}
+.controles{
+    padding: 5px;
+}
+.instrucciones p, .controles p{
+    margin: 8px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+h1{
+    margin-top: 100px;
+    text-align: center;
+    font-family: math, emoji;
+    color: white;
+}
+.panelGanar h1{
+    margin-top: 0;
+}
+.instrucciones span{
+    font-weight: bold;
+    color: rgb(0 132 0);
+}
+.controles p{
+    display: none;
+    text-align: left;
+    width: 93%;
+    font-size: smaller;
+    margin: 4.5px;
+}
+.controles, .controles .botonJugar{
+    display: none;
+}
+.mostrarDiv{
+    display: flex;
+}
+.animacionDiv{
+    animation: cambiar 1s linear;
+}
+.animacionMostrar{
+    animation: abrir 1s linear;
+}
+#parrafoPociones p{
+    font-size: larger;
+}
+@keyframes cambiar{
+    0%{
+        top: 150px;
+        height: 350px;
+        bottom: 150px;
+    }
+    25%{
+        top: 200px;
+        height: 250px;
+        bottom: 200px;
+    }
+    75%{
+        top: 250px;
+        height: 150px;
+        bottom: 250px;
+    }
+    100%{
+        top: 275px;
+        height: 0px;
+        bottom: 275px;
+    }
+}
+@keyframes abrir{
+    100%{
+        top: 150px;
+        height: 350px;
+        bottom: 150px;
+    }
+    75%{
+        top: 200px;
+        height: 250px;
+        bottom: 200px;
+    }
+    25%{
+        top: 250px;
+        height: 150px;
+        bottom: 250px;
+    }
+    0%{
+        top: 275px;
+        height: 0px;
+        bottom: 275px;
+    }
+}

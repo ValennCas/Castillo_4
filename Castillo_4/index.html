@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Ayuda al Mago!</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="shortcut icon" href="imgs/iconos/iconoMago.png" type="image/x-icon">
+</head>
+
+<body>
+    <div id="contenedor">
+        <div class="Menu"></div>
+        <div class="inicio">
+            <p>¡Ayuda al Mago!</p>
+            <div class="botones">
+                <button id="botonControles">Como se juega</button>
+                <button class="botonInstrucciones">Jugar</button>
+                <button id="audioMenu">Activar audio</button>
+            </div>
+        </div>
+        <div class="instrucciones noMostrar">
+            <p class="noMostrar">El mago ha salido al bosque encantado a buscar <span>7 pociones buenas</span> para 
+            lograr sus encantamientos.</p>
+            <p class="noMostrar">Aunque debe tener cuidado, ya que el bosque se encuentra lleno de dragones que le quitan vida
+                 y pociones malas  <img src="imgs/iconos/pocionIcono7.png" alt="Pocion 7">,<img src="imgs/iconos/pocionIcono8.png" alt="Pocion 8">,<img src="imgs/iconos/pocionIcono9.png" alt="Pocion 9">, que te hace perder una poción buena y te resta
+                  el tiempo que el mago puede estar en el bosque.
+            </p>
+            <p class="noMostrar">Las pociones buenas también suman tiempo para poder seguir en su búsqueda de alcanzar su objetivo.</p>
+            <p class="noMostrar">¡Ayuda al mago a conseguir todas las pociones antes de que se acabe el tiempo o se quede sin vidas!</p>
+            <button class="noMostrar botonJugar">Jugar</button>
+        </div>
+        <div class="controles">
+            <p>Para saltar: El mago salta con la flecha para arriba ↑</p>
+            <p>Para agacharse: El mago se agacha con la flecha para abajo ↓</p>
+            <p>Las pociones buenas suman 3 segundos.</p>
+            <p>Las pociones malas: <img src="imgs/iconos/pocionIcono7.png" alt="Pocion 7">,<img src="imgs/iconos/pocionIcono8.png" alt="Pocion 8">,<img src="imgs/iconos/pocionIcono9.png" alt="Pocion 9">, restan 5 segundos.</p>
+            <p>Los dragones restan una vida</p>
+            <p>Se empieza con 45 segundos y se puede sumar hasta 01:30</p>
+            <p>Para ganar: Se necesita recoger las 7 pociones.</p>
+            <p>El juego termina cuando, se recogieron las siete pociones o se quedo sin vidas o tiempo.</p>
+            <button class="botonJugar">Jugar</button>
+        </div>
+        <div id="panelPerder" class="mostrarPanelPerder">
+            <h1 class="mostrarPanelPerder">PARTIDA FINALIZADA</h1>
+            <button class="botonReiniciar mostrarPanelPerder">Volver a Jugar</button>
+        </div>
+        <div class="panelGanar">
+            <h1 class="mostrarPanelPerder">PARTIDA GANADA</h1>
+        </div>
+        <div id="temporizador">
+            <div id="minutos">00</div>
+            <div id="segundos">45</div>
+        </div>
+        <div class="lifes treeLifes"></div>
+        <div id="parrafoPociones">
+            <p>Cantidad de pociones recogidas: <span id="cantPociones"></span></p>
+        </div>
+        <div id="arbolesFondoLejano"></div>
+        <div id="arbolesFondoCercano"></div>
+        <div id="arbolesAdelante"></div>
+        <div id="personaje" class="caminar"></div>
+        <div id="piso"></div>
+    </div>
+</body>
+<script src="js/Personaje.js"></script>
+<script src="js/Enemigo.js"></script>
+<script src="js/Potions.js"></script>
+<script src="js/Temporizador.js"></script>
+<script src="js/Lifes.js"></script>
+<script src="js/Audio.js"></script>
+<script src="js/Menu.js"></script>
+<script src="js/main.js"></script>
+
+</html>

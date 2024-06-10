@@ -1,0 +1,402 @@
+
+body{
+    margin: 0%;
+}
+body::-webkit-scrollbar {
+    display: none;
+}
+#contenedor{
+    min-height: 46vw;
+}
+#parrafoPociones{
+    position: absolute;
+    width: 236px;
+    top: 40px;
+    z-index: 1;
+    left: 5px;
+}
+p{
+    font-family: math;
+    color: white;
+    font-size: medium;
+}
+#temporizador{
+    display: flex;
+    position: absolute;
+    padding: 2px;
+    border-radius: 5px;
+    z-index: 1;
+    top: 6px;
+    left: 640px;
+    background-color: rgb(36, 36, 36);
+}
+#minutos, #segundos{
+    background-color: rgb(80, 80, 80);
+    box-shadow: 0px 0px 6px 2px #727272 inset;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffff;
+    margin: 2px;
+    font-size: 20px;
+    font-weight: bold;
+    width: 50px;
+    height: 30px;
+    border-radius: 5px
+}
+.pociones{
+    overflow: hidden;
+    display: none;
+    width: 60px;
+    height: 60px;
+    z-index: 1;
+}
+.pocionAnimacion{
+    display: block;
+    position: absolute;
+    animation: pocion 20s infinite;
+}
+.colisionPocion{
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    margin-top: 25px;
+    margin-left: 25px;
+}
+.pocion1{
+    background: url("../imgs/potions/potions1.png");
+}
+.pocion2{
+    background: url("../imgs/potions/potions2.png");
+}
+.pocion3{
+    background: url("../imgs/potions/potions3.png");
+}
+.pocion4{
+    background: url("../imgs/potions/potions4.png");
+}
+.pocion5{
+    background: url("../imgs/potions/potions5.png");
+}
+.pocion6{
+    background: url("../imgs/potions/potions6.png");
+}
+.pocion7{
+    background: url("../imgs/potions/potions7.png");
+}
+.pocion8{
+    background: url("../imgs/potions/potions8.png");
+}
+.pocion9{
+    background: url("../imgs/potions/potions9.png");
+}
+.pocion10{
+    background: url("../imgs/potions/potions10.png");
+}
+
+.lifes{
+    position: absolute;
+    width: 150px;
+    height: 42px;
+    top: 5px;
+    left: 5px;
+    z-index: 1;
+}
+.treeLifes{
+    background: url("../imgs/hearts/TreeHearts.png");
+}
+.twoLifes{
+    background: url("../imgs/hearts/TwoHearts.png");
+}
+.oneLifes{
+    background: url("../imgs/hearts/OneHearts.png");
+}
+.zeroLifes{
+    background: url("../imgs/hearts/ZeroHearts.png");
+}
+.animacionTitilar{
+    animation: titilar .5s;
+}
+#personaje{
+    z-index: 1;
+    position: absolute;
+    bottom: 10.5%;
+    left: 100px;
+}
+.enemigo{
+    display: none;
+    bottom: 30.5%;
+    width: 178px;
+    height: 140px;
+    background: url("../imgs/enemigo/Enemigo.png");
+}
+.enemigoAnimacion{
+    animation: enemigo 4.2s steps(8) forwards infinite;
+}
+.enemigoMovimiento{
+    animation: enemigoMov 4.2s steps(8) forwards infinite;
+}
+.colisionTamanio{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    margin-top: 65px;
+    margin-left: 66px;
+}
+.posicion{
+    display: block;
+    position: absolute;
+    width: 14.5%;
+    height: 135px;
+}
+.perder{
+    background: url("../imgs/wizard/dieWizard.png");
+    animation: perder 2s steps(4);
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+#arbolesAdelante{
+    width: 100%;
+    height: 256px;
+    position: absolute;
+    bottom: 6%;
+    background: url("../imgs/paisaje/arbolesAdelante.png") repeat-x;
+    animation: arbolesAdelante 6s linear infinite;
+}
+#arbolesFondoCercano{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: url("../imgs/paisaje/arbolesFondoCercano.png") repeat-x;
+    animation: arbolesFondoCercano 10s linear infinite;
+}
+#arbolesFondoLejano{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: url("../imgs/paisaje/fondoLejano.png") repeat-x;
+    animation: arbolesFondoLejano 15s linear infinite;
+}
+.caminar, .caer, .saltar, .herido{
+    width: 220px;
+    height: 200px;
+}
+.perder{
+    width: 205px;
+    height: 200px;
+}
+
+.caminar{
+    background: url("../imgs/wizard/walkWizard.png") repeat-x;
+    animation: caminar .8s steps(5) infinite;
+}
+
+.saltar{
+    background: url("../imgs/wizard/jumpWizard.png");
+    animation: saltar .8s steps(5);
+}
+.herido{
+    background: url("../imgs/wizard/hurtWizard.png");
+    animation: herido .6s steps(4);
+}
+
+.caer{
+    background: url("../imgs/wizard/jumpWizard.png");
+    animation: caer .9s steps(5);
+}
+.agacharse{
+    width: 150px;
+    height: 150px;
+    background: url("../imgs/wizard/bendWizard.png");
+    animation: agachar 1.2s steps(1);
+}
+#piso{
+    width: 100%;
+    height: 100%;
+    background: url("../imgs/paisaje/piso.png") repeat-x;
+    background-size: 831px 100%;
+    animation: floor 2s linear infinite;
+    position: absolute;
+} 
+
+@keyframes perder{
+    0% {
+        background-position: -4px;
+    }
+    25%{
+        background-position: -224px;
+    }
+    50%{
+        background-position: -444px;
+    }
+    75%{
+        background-position: -664px;
+    }
+    100% {
+        background-position: -884px;
+    }
+}
+@keyframes enemigo{
+    0% {
+        background-position: 1690px;
+        left: 100%;
+    }
+    15%{
+        background-position: -10px;
+        left: 80%;
+    }
+    30%{
+        background-position: 1690px;
+        left: 60%;
+    }
+    45%{
+        left: 40%;
+        background-position: -10px;
+    }
+    60%{
+        left: 20%;
+        background-position: 1690px;
+    }
+    80%{
+        background-position: -10px;
+        left: 0%;
+    }
+    100% {
+        background-position: 1690px;
+        left: -10%;
+    }
+}
+@keyframes enemigoMov{
+    0% {
+        background-position: 1690px;
+    }
+    15%{
+        background-position: -10px;
+    }
+    30%{
+        background-position: 1690px;
+    }
+    45%{
+        background-position: -10px;
+    }
+    60%{
+        background-position: 1690px;
+    }
+    80%{
+        background-position: -10px;
+    }
+    100% {
+        background-position: 1690px;
+    }
+}
+@keyframes caminar{
+    0% {
+        background-position: 0px;
+    }
+    100% {
+        background-position: -1160px;
+    }
+}
+@keyframes herido{
+    0% {
+        background-position: 0px;
+    }
+    100% {
+        background-position: -1160px;
+    }
+}
+@keyframes pocion{
+    0% {
+        left: 95%;
+    }
+    100% {
+        left: -50%;
+    }
+}
+@keyframes perder{
+    0% {
+        background-position: 4px;
+    }
+    100% {
+        background-position: -880px;
+    }
+}
+@keyframes titilar{
+    0%{
+        opacity: 0;
+    }
+    25%,50%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+@keyframes agachar{
+    0% {
+        background-position: -20px;
+    }
+    100%{
+        background-position: -430px;
+    }
+}
+@keyframes saltar{
+    0% {
+        
+       bottom: 10.5%;
+    }
+    50%{
+        bottom: 35%;
+    }
+    100% {
+       
+        bottom: 65%;
+    }
+}
+@keyframes caer{
+    0% {
+        bottom: 65%;
+    }
+    50%{
+        bottom: 35%;
+    }
+    100%{
+        bottom: 10.5%;
+    }
+}
+@keyframes arbolesAdelante{
+    0% {
+        background-position: 10px;
+    }
+    100% {
+        background-position: -1144px;
+    }
+}
+@keyframes arbolesFondoCercano{
+    0%{
+        background-position: 0;
+    }
+    100%{
+        background-position: -1123px
+    }
+}
+@keyframes arbolesFondoLejano{
+    0%{
+        background-position: 0;
+    }
+    100%{
+        background-position: -1921px
+    }
+}
+@keyframes floor{
+    0%{
+        background-position: 831px;
+    }
+    100%{
+        background-position: 0;
+    }
+}
