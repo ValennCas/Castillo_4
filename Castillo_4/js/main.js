@@ -4,6 +4,7 @@ let pociones=new Potions();
 let temporizador= new Temporizador();
 let vidas=new Lifes();
 let contadorEnemigos=0;
+let contadorRestarVidas=0; //Se inicializa con el motivo que se solo se reste una vida en caso de colision (ahi incrementa e incrementa a uno), cuando se vuelve a llamar al gameLoop su valor vuelve a cero
 let parrafo=document.getElementById("cantPociones");
 parrafo.innerHTML=pociones.obtenerCantidad();
 let chequear=0;
@@ -35,8 +36,6 @@ function reiniciarJuego(){
     clearInterval(chequear);
     temporizador.resetearTemporizador();
     pociones.resetearPociones();
-    comenzarJuego();
-    
 }
 
 /*Se le pide al documento que escuche ciertas teclas (flecha abajo y flecha arriba para que se llame a cierta funcion 
@@ -72,6 +71,7 @@ function gameLoop(){
     if(vidas.cantidadValida() && temporizador.tiempoValido() && pociones.seguirJugando()){
         IDEnemigos=setInterval(GenerarEnemigos, 3200);
         contadorEnemigos=0;
+        contadorRestarVidas=0;
     }
     //En caso de tener vidas, tener tiempo y haber llegado a la cantidad necesaria de pociones, detendrá él juego
     //limpiará los intervalos y mostrará el panel de ganador
@@ -139,15 +139,20 @@ function detectarColision(){
     };
     //En caso de ser un enemigo, restará una vida y agregará la animación de herido al personaje
     if(enemigo.detectarColisionEnemigos(personaje_pos)){
-        vidas.restarVidas();
-        personaje.herido();
+        if(contadorRestarVidas==0){
+            vidas.restarVidas();
+            personaje.herido();
+            contadorRestarVidas++;
+        }
     }
     //En caso de ser una pocion, se fijará si es buena, sumará tiempo, en caso de ser mala, restará tiempo
     let resultado=pociones.detectarColisionPociones(personaje_pos);
     if(resultado== "pocion Buena"){
         temporizador.sumarTiempo(3);
+        return;
     }
     if(resultado== "pocion Mala"){
         temporizador.restarTiempo(5);
+        return;
     }
 }

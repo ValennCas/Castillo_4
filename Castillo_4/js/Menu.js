@@ -83,6 +83,7 @@ botonReiniciar.addEventListener("click", ()=>{
         audioCargar.stop(miSonidoJuego); //Se detiene el sonido
         audioCargar.reproducirAudio(miSonidoJuego);//Se vuelve a reproducir
         reiniciarJuego();//Se vuelve a reiniciar los valores
+        comenzarJuego();
     })
 })
 
